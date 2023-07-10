@@ -14,7 +14,7 @@ export type RowProps = {
 export const RowBlock = block(({ adjective, color, classes }: RowProps) => {
   const path = usePathname();
   const [route, setRoute] = useState<string>("");
-  useQuery({});
+  // useQuery({});
   useEffect(() => {
     setRoute(path);
   }, [path]);
