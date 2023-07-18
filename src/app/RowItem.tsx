@@ -14,16 +14,18 @@ export type RowProps = {
 export const RowBlock = block(({ adjective, color, classes }: RowProps) => {
   const path = usePathname();
   const [route, setRoute] = useState<string>("");
+  const [entity, setEntity] = useState<string>("");
   // useQuery({});
   useEffect(() => {
     setRoute(path);
+    setEntity("entity");
   }, [path]);
   return (
     <div style={{ backgroundColor: "gray" }}>
       <p>{adjective}</p>
-      <p>{color}</p>
+      <p className={`${entity === "entity" ? "red" : "cream"}`}>{color}</p>
       <p className={classes}>{classes}</p>
-      <p>{route}</p>
+      <p className={`${route === "/" ? "red" : "cream"}`}>{route}</p>
     </div>
   );
 });
